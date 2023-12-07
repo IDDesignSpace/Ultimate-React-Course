@@ -57,26 +57,34 @@ function App() {
   );
 }
 
-function Pizza() {
-  return (
-    <div>
-      <img src="./pizzas/spinaci.jpg" alt="spinach pizza"></img>
-      <h2>Pizza Spinaci</h2>
-      <p>Tomato, mozarella, spinach, and ricotta cheese</p>
-    </div>
-  );
-}
-function Header() {
-  return <h1>Rocket Pizza</h1>;
-}
 function Menu() {
   return (
     <div>
       <h2>Our Menu</h2>
-      <Pizza />
+      <Pizza
+        name="Pizza Spinaci"
+        ingredient="Tomato, mozarella, spinach, and ricotta cheese"
+        photoName="pizzas/spinaci.jpg"
+        price="10"
+      />
     </div>
   );
 }
+
+function Pizza(props) {
+  console.log(props);
+  return (
+    <div>
+      <img src={props.photoName} alt={props.ingredient}></img>
+      <h2>{props.name}</h2>
+      <p>{props.ingredients}</p>
+    </div>
+  );
+}
+function Header() {
+  return <h1>Pizza</h1>;
+}
+
 function Footer() {
   const hour = new Date().getHours();
   const openHour = 12;
